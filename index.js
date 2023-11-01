@@ -19,6 +19,10 @@ app.use("/uploads", express.static("uploads"));
 
 app.use("/apis", require("./src/routes"));
 
+app.get("/healthcheck", (req, res) => {
+  res.status(200).send("ok");
+});
+
 app.listen(server.PORT, (err) => {
   if (err) console.log("Error in server setup");
   console.log("Server listening on Port", server.PORT);
